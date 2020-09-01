@@ -5,6 +5,35 @@ greeting = document.querySelector(".js-greeting");
 const USER_LS = "currentUser",
  SHOWING_CN = "showing";
 
+
+function saveName(text){
+
+    localStorage.setItem(USER_LS,text);
+
+
+}
+
+function handleSumit(){
+
+    event.preventDefault();
+    const currentValue = input.value;
+    paintGreeting(currentValue);
+    saveName(currentValue);
+
+
+ }
+
+
+function askForName(){
+    form.classList.add(SHOWING_CN);
+    form.addEventListener("submit", handleSumit);
+
+
+}
+
+
+
+
 function paintGreeting(text){
 
     form.classList.remove(SHOWING_CN);
@@ -20,7 +49,7 @@ function loadName(){
     //she is not
     {
 
-
+        askForName();
 
     }
     else{
